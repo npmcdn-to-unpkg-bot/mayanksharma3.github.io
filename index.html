@@ -1,194 +1,256 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Mayank Sharma</title>
-    <link rel="shortcut icon" href="img/icon.png">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.min.js"></script>
-    <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="theme-color" content="#2196F3">
+    <title>Material UI One Page Theme</title>
+
+    <!-- CSS  -->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+    <meta charset="UTF-8">
+    <title>Typed.js - Type your heart out</title>
+    <!-- Get jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+    $(function(){
+
+        $("#typed").typed({
+            // strings: ["Typed.js is a <strong>jQuery</strong> plugin.", "It <em>types</em> out sentences.", "And then deletes them.", "Try it out!"],
+            stringsElement: $('#typed-strings'),
+            typeSpeed: 100,
+            backDelay: 800,
+            loop: false,
+            contentType: 'html', // or text
+            // defaults to false for infinite loop
+            loopCount: false,
+            callback: function(){ foo(); },
+            resetCallback: function() { newTyped(); }
+        });
+
+        $(".reset").click(function(){
+            $("#typed").typed('reset');
+        });
+
+    });
+
+    function newTyped(){ /* A new typed object */ }
+
+    function foo(){ console.log("Callback"); }
+
+    </script>
     <style>
-        .nanobar {
-            width: 100%;
-            height: 3px;
-            z-index: 9999;
-            top: 0
+        /* code for animated blinking cursor */
+        .typed-cursor{
+            opacity: 1;
+            font-weight: 100;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            -ms-animation: blink 0.7s infinite;
+            -o-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
         }
-        .bar {
-            width: 0;
-            height: 100%;
-            transition: height .3s;
-            background: #000;
+        @-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
         }
-        .post-title {
-            cursor: pointer;
+        @-webkit-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
         }
-        .loader {
-            position: fixed;
-            left: 0px;
-            top: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 9999;
-            background: url('../img/page-loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
+        @-moz-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-ms-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
+        }
+        @-o-keyframes blink{
+            0% { opacity:1; }
+            50% { opacity:0; }
+            100% { opacity:1; }
         }
     </style>
 </head>
-<body id="container">
-    <div id='mainBodyContainer' style="display:none">
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                    <a class="navbar-brand" href="">Mayank Sharma</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="about">About</a>
-                        </li>
-                        <li>
-                            <a href="projects">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog</a>
-                        </li>
-                        <li>
-                            <a href="contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>Mayank Sharma</h1>
-                            <hr class="small">
-                            <span class="subheading">Technology, Coding and Projects</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
+<body id="top" class="scrollspy">
+
+<!-- Pre Loader -->
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+
+<!--Navigation-->
+ <div class="navbar-fixed">
+    <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
-            <div class="post-preview">
-                <a id='bodyText'></a>
+            <div class="nav-wrapper">
+            <a href="#" id="logo-container" class="brand-logo">Mayank Sharma</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#intro">About</a></li>
+                    <li><a href="#work">My Work</a></li>
+                    <li><a href="#team">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">Service</a></li>
+                    <li><a href="#work">Work</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://github.com/joashp/material-design-template" target="_blank">Download</a></li>
+                </ul>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
-            <div class="row">
-                <h2 class="section-heading text-center">Latest Blog Posts</h2>
-                <hr class="light">
-                <div id='add' class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+        </div>
+    </nav>
+</div>
+<!--Hero-->
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+        
+
+        <h1 class="text_h center header cd-headline letters type">
+        <div class="type-wrap">
+        		<span>Hello. I'm a </span>
+            <div id="typed-strings">
+                <p><strong>Designer</strong></p>
+                <p><strong>Developer</strong></p>
+                <p><strong>Creator</strong></p>
+            </div>
+            <span id="typed" style="white-space:pre;"></span>
+        </div>
+            <!--<span>Mayank Sharma - </span> 
+            <span class="cd-words-wrapper waiting">
+                <b class="is-visible">Developer</b>
+                <b>Designer</b>
+                <b>Creator</b>
+            </span>-->
+        </h1>
+    </div>
+</div>
+<!--Intro and service-->
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+            <div  class="col s12">
+                <h2 class="center header text_h2"> Hello and welcome to my page! I'm Mayank Sharma; a graphics and web designer, a creator and a developer. <span class="span_h2">Check out my Work Here</span></h2>
+            </div>
+
+            <div  class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="material-icons">code</i>
+                    <h5 class="promo-caption">Web Developer</h5>
+                    <p class="light center">Above all else, I am a developer. I know many different languages that I combine to get the best webpage or web application to any client.</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="material-icons">polymer</i>
+                    <h5 class="promo-caption">Graphic Designer</h5>
+                    <p class="light center">Whilst I am not an expert in this area, I have self-taught skills in various Adobe Software such as Photoshop, Illustrator, After Effects and Premier Pro. This is more of a hobby than a proffesion, but it helps me in my web development significantly</p>
+                </div>
+            </div>
+            <div class="col s12 m4 l4">
+                <div class="center promo promo-example">
+                    <i class="material-icons">language</i>
+                    <h5 class="promo-caption">Creator</h5>
+                    <p class="light center">I have always loved to create systems and more practical object. Combining my passion for web designer and my hobby of electronics is something I always want to explore</p>
                 </div>
             </div>
         </div>
-        <hr>
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <ul class="list-inline text-center">
-                            <li>
-                                <a href="https://twitter.com/mayanksharma318">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="mailto:mayank.sharma.uk@gmail.com">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                                </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://github.com/mayanksharma3">
-                                    <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                                </a>
-                            </li>
-                        </ul>
-                        <p class="copyright text-muted">Copyright &copy; Mayank Sharma 2016</p>
-                    </div>
-                </div>
-            </div>
-        </footer>
     </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/clean-blog.min.js"></script>
-    <script src='js/nanobar.min.js'></script>
-    <script src="js/serverVar.js"></script>
-    <script>
-        var simplebar = new Nanobar();
-        simplebar.go(30);
-        var socket = io(server);
-        var viewportWidth = $(window).width();
-        if (viewportWidth > 768) {
-            $("#add").removeClass("text-center");
-        }
-        socket.once('blogData', function(data) {
-            sorted = _.sortBy(data, "date").reverse();
-            simplebar.go(70)
-            appendPage(JSON.stringify(sorted));
-        });
-        socket.once('cmsData', function(data) {
-            for (var i = 0; i < data.length; i++) {
-                $('#bodyText').append('<h3 class="post-subtitle text-center">' + data[i][0] + '</h3>');
-            }
-        })
-        function goPage(data) {
-            window.location = ('post/?' + arr[data].replace(/ /g, '-'))
-        }
-        function appendPage(data) {
-            data = JSON.parse(data);
-            arr = [];
-            for (var i = 0; i < data.length; i++) {
-                arr.push(data[i].fileName);
-                var monthNames = [
-                    "January", "February", "March",
-                    "April", "May", "June", "July",
-                    "August", "September", "October",
-                    "November", "December"
-                ];
-                var date = new Date(data[i].date);
-                var day = date.getDate();
-                var monthIndex = date.getMonth();
-                var year = date.getFullYear();
-                var time = date.toString("hh:mm tt");
-                var dateStr = time + ' ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
-                if (data[i].fileName.split('*')[1]) {
-                    $('#add').append('<div class="post-preview"><a onClick="goPage(' + i + ')"><h2 class="post-title">' + data[i].fileName.split('*')[0] + '</h2><h3 class="post-subtitle">' + data[i].fileName.split('*')[1] + '</h3></a><p class="post-meta">Posted by <a href="about">' + data[i].owner + '</a> on ' + dateStr + '</p></div><hr>')
-                } else {
-                    $('#add').append('<div class="post-preview"><a onClick="goPage(' + i + ')"><h2 class="post-title">' + data[i].fileName.split('*')[0] + '</h2><h3 class="post-subtitle"></h3></a><p class="post-meta">Posted by <a href="about">' + data[i].owner + '</a> on ' + dateStr + '</p></div><hr>')
-                }
-            }
-            $('#mainBodyContainer').fadeIn();
-            simplebar.go(100)
-        }
-    </script>
-</body>
+</div>
+
+<!--Parallax-->
+<div class="parallax-container">
+    <div class="parallax"><img src="img/parallax1.png"></div>
+</div>
+
+<!--Footer-->
+<footer id="contact" class="page-footer default_color scrollspy">
+    <div class="container">  
+        <div class="row">
+            <div class="col l6 s12">
+                <form class="col s12" action="contact.php" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                            <label for="icon_prefix" class="white-text">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input id="icon_email" name="email" type="email" class="validate white-text">
+                            <label for="icon_email" class="white-text">Email-id</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                            <label for="icon_prefix2" class="white-text">Message</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Mayank Sharma</h5>
+                <ul>
+                    <li><a class="white-text" href="#">Home</a></li>
+                    <li><a class="white-text" href="#">About</a></li>
+                     <li><a class="white-text" href="#">My Work</a></li>
+                    <li><a class="white-text" href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="col l3 s12">
+                <h5 class="white-text">Social</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="https://www.behance.net/joashp">
+                            <i class="small fa fa-twitter-square white-text"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/joash.c.pereira">
+                            <i class="small fa fa-facebook-square white-text"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/joashp">
+                            <i class="small fa fa-github-square white-text"></i> Github
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.linkedin.com/in/joashp">
+                            <i class="small fa fa-linkedin-square white-text"></i> Linkedin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright default_color">
+        <div class="container">
+            Made by Mayank Sharma
+        </div>
+    </div>
+</footer>
+ <script src="min/plugin-min.js"></script>
+    <script src="min/custom-min.js"></script>
+    <script src="js/typed.js" type="text/javascript"></script>
+
+    </body>
 </html>
