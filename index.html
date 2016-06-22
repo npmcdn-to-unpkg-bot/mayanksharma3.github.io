@@ -67,11 +67,14 @@
             100% { opacity:1; }
         }
 		@media(max-width:768px){
-			#des{font-size:30px;
-			line-height:35px}
-			#index-banner{
-				height:	300px !important;
+			#des{
+				font-size:30px;
+				line-height:35px;
 			}
+		}
+		#hero {
+			top:50%;
+    		left:50%;
 		}
     </style>
 </head>
@@ -105,10 +108,8 @@
 </div>
 <!--Hero-->
 <div class="section no-pad-bot" id="index-banner">
-    <div class="container">
-        
-
-        <h1 class="text_h center header cd-headline letters type">
+    <div class="container" id="hero">
+        <h1 class="text_h center header cd-headline letters type" style="display:block;  margin-left:auto; margin-right:auto; margin-bottom:20px;">
         <div class="type-wrap">
         		<span>Hello. I'm a </span>
             <div id="typed-strings">
