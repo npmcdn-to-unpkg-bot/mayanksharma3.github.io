@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mayank Sharma</title>
+    <link rel="shortcut icon" href="img/icon.png">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://www.datejs.com/build/date.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.11.2/lodash.min.js"></script>
+    <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
+    <style>
+        .nanobar {
+            width: 100%;
+            height: 3px;
+            z-index: 9999;
+            top: 0
+        }
+        .bar {
+            width: 0;
+            height: 100%;
+            transition: height .3s;
+            background: #000;
+        }
+        .post-title {
+            cursor: pointer;
+        }
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('../img/page-loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
+        }
+    </style>
+</head>
+<body id="container">
+    <div id='mainBodyContainer' style="display:none">
+        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                    <a class="navbar-brand" href="">Mayank Sharma</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="about">About</a>
+                        </li>
+                        <li>
+                            <a href="projects">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                        <li>
+                            <a href="contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>Mayank Sharma</h1>
+                            <hr class="small">
+                            <span class="subheading">Technology, Coding and Projects</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="post-preview">
+                <a id='bodyText'></a>
+            </div>
+            <div class="row">
+                <h2 class="section-heading text-center">Latest Blog Posts</h2>
+                <hr class="light">
+                <div id='add' class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <ul class="list-inline text-center">
+                            <li>
+                                <a href="https://twitter.com/mayanksharma318">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:mayank.sharma.uk@gmail.com">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/mayanksharma3">
+                                    <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p class="copyright text-muted">Copyright &copy; Mayank Sharma 2016</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/clean-blog.min.js"></script>
+    <script src='js/nanobar.min.js'></script>
+    <script src="js/serverVar.js"></script>
+    <script>
+        var simplebar = new Nanobar();
+        simplebar.go(30);
+        var socket = io(server);
+        var viewportWidth = $(window).width();
+        if (viewportWidth > 768) {
+            $("#add").removeClass("text-center");
+        }
+        socket.once('blogData', function(data) {
+            sorted = _.sortBy(data, "date").reverse();
+            simplebar.go(70)
+            appendPage(JSON.stringify(sorted));
+        });
+        socket.once('cmsData', function(data) {
+            for (var i = 0; i < data.length; i++) {
+                $('#bodyText').append('<h3 class="post-subtitle text-center">' + data[i][0] + '</h3>');
+            }
+        })
+        function goPage(data) {
+            window.location = ('post/?' + arr[data].replace(/ /g, '-'))
+        }
+        function appendPage(data) {
+            data = JSON.parse(data);
+            arr = [];
+            for (var i = 0; i < data.length; i++) {
+                arr.push(data[i].fileName);
+                var monthNames = [
+                    "January", "February", "March",
+                    "April", "May", "June", "July",
+                    "August", "September", "October",
+                    "November", "December"
+                ];
+                var date = new Date(data[i].date);
+                var day = date.getDate();
+                var monthIndex = date.getMonth();
+                var year = date.getFullYear();
+                var time = date.toString("hh:mm tt");
+                var dateStr = time + ' ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
+                if (data[i].fileName.split('*')[1]) {
+                    $('#add').append('<div class="post-preview"><a onClick="goPage(' + i + ')"><h2 class="post-title">' + data[i].fileName.split('*')[0] + '</h2><h3 class="post-subtitle">' + data[i].fileName.split('*')[1] + '</h3></a><p class="post-meta">Posted by <a href="about">' + data[i].owner + '</a> on ' + dateStr + '</p></div><hr>')
+                } else {
+                    $('#add').append('<div class="post-preview"><a onClick="goPage(' + i + ')"><h2 class="post-title">' + data[i].fileName.split('*')[0] + '</h2><h3 class="post-subtitle"></h3></a><p class="post-meta">Posted by <a href="about">' + data[i].owner + '</a> on ' + dateStr + '</p></div><hr>')
+                }
+            }
+            $('#mainBodyContainer').fadeIn();
+            simplebar.go(100)
+        }
+    </script>
+</body>
+</html>
