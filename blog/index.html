@@ -9,9 +9,10 @@
     <meta name="author" content="">
     <title>Mayank Sharma</title>
     <link rel="shortcut icon" href="img/icon.png">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="../min/custom-min.css" type="text/css" rel="stylesheet" >
+    
     <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -43,52 +44,80 @@
             z-index: 9999;
             background: url('../img/page-loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
         }
+		.bg-default{
+			background-color:#FF9A00 !important;
+		}
     </style>
 </head>
 <body id="container">
     <div id='mainBodyContainer' style="display:none">
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                    <a class="navbar-brand" href="">Mayank Sharma</a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="about">About</a>
-                        </li>
-                        <li>
-                            <a href="projects">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#">Blog</a>
-                        </li>
-                        <li>
-                            <a href="contact">Contact</a>
-                        </li>
+		<div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+     </div>
+     <div class="navbar-fixed">
+        <nav id="nav_f" role="navigation" class="bg-default">
+            <div class="container">
+                <div class="nav-wrapper">
+                <a href="#" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#intro">About</a></li>
+                        <li><a href="#work">My Work</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="#intro">About</a></li>
+                        <li><a href="#work">My Work</a></li>
+                        <li><a href="blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i style="margin-left:10px" class="mdi-navigation-menu"></i></a>
                 </div>
             </div>
         </nav>
-        <header class="intro-header" style="background-image: url('img/home-bg.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                        <div class="site-heading">
-                            <h1>Mayank Sharma</h1>
-                            <hr class="small">
-                            <span class="subheading">Technology, Coding and Projects</span>
-                        </div>
+    </div>
+    <!--Hero-->
+    <div class="section no-pad-bot bg-default" id="index-banner">
+        <div class="container" id="hero">
+            <h1 class="text_h center header cd-headline letters type" id="head">
+            <div class="type-wrap">
+                    <span>Mayank Sharma's Blog</span>
+            </div>
+            </h1>
+        </div>
+    </div>
+    <div id="intro" class="section scrollspy">
+        <div class="container">
+            <div class="row">
+                <div  class="col s12">
+                    <h2 class="center header text_h2" id="des">Welcome to my Blog. Here you will find all of my latest articles and projects!<br> <span class="span_h2">Check out my Blog Below</span></h2>
+                </div>
+                <div  class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="material-icons">code</i>
+                        <h5 class="promo-caption">Web Developer</h5>
+                        <p class="light center">Above all else, I am a developer. I know many different languages that I combine to get the best webpage or web application to any client.</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="material-icons">polymer</i>
+                        <h5 class="promo-caption">Graphic Designer</h5>
+                        <p class="light center">Whilst I am not an expert in this area, I have self-taught skills in various Adobe Software such as Photoshop, Illustrator, After Effects and Premier Pro. This is more of a hobby than a proffesion, but it helps me in my web development significantly</p>
+                    </div>
+                </div>
+                <div class="col s12 m4 l4">
+                    <div class="center promo promo-example">
+                        <i class="material-icons">language</i>
+                        <h5 class="promo-caption">Creator</h5>
+                        <p class="light center">I have always loved to create systems and more practical object. Combining my passion for web designer and my hobby of electronics is something I always want to explore</p>
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
         <div class="container">
             <div class="post-preview">
                 <a id='bodyText'></a>
