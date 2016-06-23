@@ -34,7 +34,7 @@
         <nav id="nav_f" role="navigation" class="bg-default">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="#" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
+                    <a href="../../" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="../../#intro">About</a></li>
                         <li><a href="../../#work">My Work</a></li>
@@ -179,44 +179,52 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 
             $('body').fadeIn();
             var socket = io(server);
-            var converter = new showdown.Converter();
-            var a = location.href;
-            var b = location.href.substring(a.indexOf("?") + 1);
-            var str = b;
-            str = str.replace(/-/g, ' ');
-            var simplebar = new Nanobar();
-            simplebar.go(30)
-            if (a == b) {
-                $('.loader').fadeOut('fast');
-                simplebar.go(100)
-            } else {
-                socket.emit('blogString', str);
-            }
-            socket.once('articleData', function(data) {
-                simplebar.go(75);
-                $('html').append('<title>' + str.split('*')[0] + '</title>');
-
-                $('#pageBack').append(converter.makeHtml(data[0].text));
-
-                if ($('body').width() <= 768) {
-                    $("h1, h2, h3, h4, h5, h6").css('text-align', 'center');
-                    $('p').addClass('flow-text');
-                    $('#pageBack').removeClass('container');
-                }
-                $("img").parent().css({
-                    "text-align": "center"
-                });
-                $('.loader').fadeOut('fast');
-                $('#mainBodyContainer').fadeIn();
-                simplebar.go(100)
-                $('p img').click(function() {
-                    $('#img').attr('src', $(this).attr('src'));
-                    $('#altText').html($(this).attr('alt'));
-                    $('#modal1').openModal();
-                    $('#img').width('100%')
-
-                })
-            });
+			socket.on('connect', function() {
+		  		loadPage();
+				console.log('check 2', socket.connected);
+			});
+			setTimeout(function(){
+			},2000);
+			function loadPage(){
+				var converter = new showdown.Converter();
+				var a = location.href;
+				var b = location.href.substring(a.indexOf("?") + 1);
+				var str = b;
+				str = str.replace(/-/g, ' ');
+				var simplebar = new Nanobar();
+				simplebar.go(30)
+				if (a == b) {
+					$('.loader').fadeOut('fast');
+					simplebar.go(100)
+				} else {
+					socket.emit('blogString', str);
+				}
+				socket.once('articleData', function(data) {
+					simplebar.go(75);
+					$('html').append('<title>' + str.split('*')[0] + '</title>');
+	
+					$('#pageBack').append(converter.makeHtml(data[0].text));
+	
+					if ($('body').width() <= 768) {
+						$("h1, h2, h3, h4, h5, h6").css('text-align', 'center');
+						$('p').addClass('flow-text');
+						$('#pageBack').removeClass('container');
+					}
+					$("img").parent().css({
+						"text-align": "center"
+					});
+					$('.loader').fadeOut('fast');
+					$('#mainBodyContainer').fadeIn();
+					simplebar.go(100)
+					$('p img').click(function() {
+						$('#img').attr('src', $(this).attr('src'));
+						$('#altText').html($(this).attr('alt'));
+						$('#modal1').openModal();
+						$('#img').width('100%')
+	
+					})
+				});
+			}
         </script>
 </body>
 

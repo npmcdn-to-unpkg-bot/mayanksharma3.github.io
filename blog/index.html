@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -65,7 +64,7 @@
         <nav id="nav_f" role="navigation" class="bg-default">
             <div class="container">
                 <div class="nav-wrapper">
-                    <a href="#" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
+                    <a href="../../" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="#intro">About</a></li>
                         <li><a href="#work">My Work</a></li>
@@ -191,6 +190,8 @@
         var simplebar = new Nanobar();
         simplebar.go(30);
         var socket = io(server);
+		console.log('check 1', socket.connected);
+		
         var viewportWidth = $(window).width();
         if (viewportWidth > 768) {
             $("#add").removeClass("text-center");
