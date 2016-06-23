@@ -178,7 +178,6 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 
     $('body').fadeIn();
     var socket = io(server);
-	function loadPage(){
 		var converter = new showdown.Converter();
 		var a = location.href;
 		var b = location.href.substring(a.indexOf("?") + 1);
@@ -209,9 +208,9 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 				$('#modal1').openModal();
 				$('#img').width('100%')
 	
-			})
+		})
 		});
-	}
+	
 </script>
   </body>
 </html>
