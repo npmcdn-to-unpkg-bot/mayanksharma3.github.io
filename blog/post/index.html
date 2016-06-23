@@ -192,9 +192,10 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 		}
 		socket.once('articleData', function(data) {
 			simplebar.go(75);
-			$('html').append('<title>' + str.split('*')[0] + '</title>')
-			console.log(converter.makeHtml(data[0].text));
+			$('html').append('<title>' + str.split('*')[0] + '</title>');
+			
 			$('#pageBack').append(converter.makeHtml(data[0].text));
+			$('p').addClass('flow-text');
 			$("img").parent().css({
 				"text-align": "center"
 			});

@@ -203,6 +203,7 @@
         socket.once('cmsData', function(data) {
             for (var i = 0; i < data.length; i++) {
                 $('#bodyText').append('<h3 class="post-subtitle text-center">' + data[i][0] + '</h3>');
+				
             }
         })
         function goPage(data) {
