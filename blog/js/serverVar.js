@@ -1,1 +1,1 @@
-var server = 'http://192.168.1.106:8080/';
+var server = 'http://sharmas.ddns.net/';
