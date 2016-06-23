@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Material Design Lite</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-          <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles.css">
@@ -17,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   </head>
-  <body>
+  <body style="display:none">
   	<style>
 	#pageBack{
 		background-color:white;
@@ -61,11 +60,24 @@
           <div class="container z-depth-3 markdown-body" id="pageBack">
 				
           </div>
+          
         </div>
             
       </div>
-      
+      <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 25px; right: 25px;">
+        <a class="btn-floating btn-large red">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating blue darken-3"><i class="fa fa-facebook"></i></a></li>
+          <li><a href="mailto:?subject=New Blog Website&body=Hi,I found this website
+and thought you might like it" class="btn-floating green darken-1"><i class="fa fa-envelope"></i></a></li>
+          <li><a class="btn-floating blue"><i class="fa fa-twitter"></i></a></li>
+          <li><a class="btn-floating red"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+      </div>
     </div>
+
        <footer id="contact" class="page-footer bg-default scrollspy" style="background-color:#3F51B5">
         <div class="container">
             <div class="row">
