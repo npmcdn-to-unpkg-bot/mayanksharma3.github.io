@@ -190,8 +190,9 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 			$('#pageBack').append(converter.makeHtml(data[0].text));
 			
 			if ($('body').width() <= 768){
-			$("h1, h2, h3, h4, h5, h6").css('text-align','center');
-			$('p').addClass('flow-text');
+				$("h1, h2, h3, h4, h5, h6").css('text-align','center');
+				$('p').addClass('flow-text');
+				$('#pageBack').removeClass('container');
 			}
 			$("img").parent().css({
 				"text-align": "center"
