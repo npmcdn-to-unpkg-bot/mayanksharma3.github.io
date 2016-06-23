@@ -13,8 +13,6 @@
         <link rel="stylesheet" href="style.css">
     <link href="../../min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="../../min/custom-min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
   </head>
   <body style="display:none">
   	<style>
@@ -65,7 +63,7 @@
             
       </div>
       
-      <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 25px; right: 25px;">
+      <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 25px; right: 25px;">
         <a class="btn-floating btn-large red">
           <i class="material-icons">menu</i>
         </a>
@@ -172,47 +170,47 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 }
 </style>
 <script>
+
   $(document).ready(function(){
     $('.modal-trigger').leanModal();
   });
 
     $('body').fadeIn();
     var socket = io(server);
-    var converter = new showdown.Converter();
-    var a = location.href;
-    var b = location.href.substring(a.indexOf("?") + 1);
-    var str = b;
-    str = str.replace(/-/g, ' ');
-    var simplebar = new Nanobar();
-    simplebar.go(30)
-    if (a == b) {
-        $('.loader').fadeOut('fast');
-        simplebar.go(100)
-    } else {
-        socket.emit('blogString', str);
-    }
-    socket.once('articleData', function(data) {
-        simplebar.go(75);
-        $('html').append('<title>' + str.split('*')[0] + '</title>')
-		console.log(converter.makeHtml(data[0].text));
-        $('#pageBack').append(converter.makeHtml(data[0].text));
-        $("img").parent().css({
-            "text-align": "center"
-        });
-        $('.loader').fadeOut('fast');
-        $('#mainBodyContainer').fadeIn();
-        simplebar.go(100)
-        $('p img').click(function() {
-            $('#img').attr('src', $(this).attr('src'));
-            $('#altText').html($(this).attr('alt'));
-            $('#modal1').openModal();
-            $('#img').width('100%')
-
-        })
-    });
-    var a2a_config = a2a_config || {};
-    a2a_config.linkname = "Check out Mayank's Blog! | " + str.split('*')[0];
-    a2a_config.linkurl = "mayanksharma3.github.io/post?" + b;
+	function loadPage(){
+		var converter = new showdown.Converter();
+		var a = location.href;
+		var b = location.href.substring(a.indexOf("?") + 1);
+		var str = b;
+		str = str.replace(/-/g, ' ');
+		var simplebar = new Nanobar();
+		simplebar.go(30)
+		if (a == b) {
+			$('.loader').fadeOut('fast');
+			simplebar.go(100)
+		} else {
+			socket.emit('blogString', str);
+		}
+		socket.once('articleData', function(data) {
+			simplebar.go(75);
+			$('html').append('<title>' + str.split('*')[0] + '</title>')
+			console.log(converter.makeHtml(data[0].text));
+			$('#pageBack').append(converter.makeHtml(data[0].text));
+			$("img").parent().css({
+				"text-align": "center"
+			});
+			$('.loader').fadeOut('fast');
+			$('#mainBodyContainer').fadeIn();
+			simplebar.go(100)
+			$('p img').click(function() {
+				$('#img').attr('src', $(this).attr('src'));
+				$('#altText').html($(this).attr('alt'));
+				$('#modal1').openModal();
+				$('#img').width('100%')
+	
+			})
+		});
+	}
 </script>
   </body>
 </html>
