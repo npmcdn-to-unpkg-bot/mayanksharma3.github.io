@@ -8,16 +8,13 @@ function formSubmit (){
             }
             if (obj.email && obj.message && obj.name){
               socket.emit('emailData',obj);
-              $('#alert').fadeIn();
-              setTimeout(function() {
-                   $('#alert').fadeOut('fast');
-               }, 3000);
+               var $toastContent = $('<span>Success! Thank you for you Submission!</span>');
+  				Materialize.toast($toastContent, 5000);
 
             }
             else {
               $('#alert-bad').fadeIn();
-              setTimeout(function() {
-                   $('#alert-bad').fadeOut('fast');
-               }, 3000);
+               var $toastContent = $('<span>Did you fill in all the details?</span>');
+  				Materialize.toast($toastContent, 5000);
             }
 }
