@@ -222,6 +222,10 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 						$('#pageBack').removeClass('container');
 						$('#pageBack').css('margin',0);
 					}
+					if($('body').width() <= 400){
+						$("h1").css('font-size', '22px');
+						$('h2').css('font-size','18px');
+					}
 					$("img").parent().css({
 						"text-align": "center"
 					});
