@@ -1,1 +1,0 @@
-var server = 'http://sharmas.ddns.net/';
