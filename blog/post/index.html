@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="../../min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="../../min/custom-min.css" type="text/css" rel="stylesheet">
+    <link href="../../css/materialize.min.css" type="text/css" rel="stylesheet">
+</head>
+
+<body style="display:none">
+    <style>
+        #pageBack {
+            background-color: white;
+            border-radius: 2px;
+            padding: 80px 56px;
+            margin-bottom: 40px;
+        }
+        
+        .bg-default {
+            background-color: #3F51B5;
+        }
+		#socialList{
+			margin-left:-40px;
+		}
+		@media (max-width:768px){
+			#floatIcon{
+				display:none;
+			}
+		}
+    </style>
+    <div class="navbar-fixed">
+        <nav id="nav_f" role="navigation" class="bg-default">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="../../" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="../../#intro">About</a></li>
+                        <li><a href="../../#work">My Work</a></li>
+                        <li><a href="../">Blog</a></li>
+                        <li><a href="../../#contact">Contact</a></li>
+                    </ul>
+                    <ul id="nav-mobile" class="side-nav">
+                        <li><a href="../../#intro">About</a></li>
+                        <li><a href="../../#work">My Work</a></li>
+                        <li><a href="../">Blog</a></li>
+                        <li><a href="../../#contact">Contact</a></li>
+                    </ul>
+                    <a href="#" data-activates="nav-mobile" class="button-collapse"><i style="margin-left:10px" class="mdi-navigation-menu"></i></a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="demo-layout">
+        <div class="demo-ribbon"></div>
+        <div class="demo-main">
+            <div class="demo-container">
+                <div class="container z-depth-3 markdown-body" id="pageBack">
+                </div>
+            </div>
+			
+        </div>
+        <div id="floatIcon" class="fixed-action-btn click-to-toggle" style="bottom: 25px; right: 25px;">
+            <a class="btn-floating btn-large red">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating waves-effect blue darken-3"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="mailto:?subject=New Blog Website&body=Hi,I found this website
+and thought you might like it" class="btn-floating green darken-1"><i class="fa fa-envelope-o"></i></a></li>
+                <li><a class="btn-floating blue"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="btn-floating red"><i class="material-icons">attach_file</i></a></li>
+            </ul>
+        </div>
+
+        <footer id="contact" class="page-footer bg-default scrollspy" style="background-color:#3F51B5">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <form class="col s12" action="contact.php" method="post">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <i class="mdi-action-account-circle prefix white-text"></i>
+                                    <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                                    <label for="icon_prefix" class="white-text">First Name</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <i class="mdi-communication-email prefix white-text"></i>
+                                    <input id="icon_email" name="email" type="email" class="validate white-text">
+                                    <label for="icon_email" class="white-text">Email-ID</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <i class="mdi-editor-mode-edit prefix white-text"></i>
+                                    <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                                    <label for="icon_prefix2" class="white-text">Message</label>
+                                </div>
+                                <div class="col offset-s7 s5">
+                                    <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col m3">
+                        <h5 class="white-text">Mayank Sharma</h5>
+                        <ul>
+                            <li><a class="white-text" href="../../#intro">About</a></li>
+                            <li><a class="white-text" href="../../#work">My Work</a></li>
+                            <li><a class="white-text" href="../">Blog</a></li>
+                            <li><a class="white-text" href="../../#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col m3">
+                        <h5 class="white-text">Social</h5>
+                        <ul>
+                            <li>
+                                <a class="white-text" href="https://twitter.com/mayanksharma318">
+                                    <i class="small fa fa-twitter-square white-text" style="vertical-align:middle"></i> Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="https://www.facebook.com/">
+                                    <i class="small fa fa-facebook-square white-text" style="vertical-align:middle"></i> Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="https://github.com/mayanksharma3">
+                                    <i class="small fa fa-github-square white-text" style="vertical-align:middle"></i> Github
+                                </a>
+                            </li>
+                            <li>
+                                <a class="white-text" href="https://www.linkedin.com/">
+                                    <i class="small fa fa-linkedin-square white-text" style="vertical-align:middle"></i> Linkedin
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright bg-default">
+                <div class="container">
+                    Made by Mayank Sharma
+                </div>
+            </div>
+        </footer>
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <img id="img" style="max-width:100%; height:auto" />
+            </div>
+            <div class="modal-footer">
+                <div id="altText" style="text-align:center"></div>
+            </div>
+        </div>
+        <script src="../js/serverVar.js"></script>
+		<script src="js/formSubmit.js"></script>
+        <script src="../../js/materialize.min.js"></script>
+        <script src="../min/plugin-min.js"></script>
+        <script src="../min/custom-min.js"></script>
+        <script src='../js/nanobar.min.js'></script>
+        <script src="https://cdn.rawgit.com/showdownjs/showdown/1.3.0/dist/showdown.min.js"></script>
+        <style>
+            .modal {
+                width: 35% !important;
+                max-height: 100% !important;
+                padding: 0 !important;
+            }
+            
+            @media (max-width:768px) {
+                .modal {
+                    width: 75% !important;
+                }
+            }
+        </style>
+        <script>
+            $(document).ready(function() {
+                $('.modal-trigger').leanModal();
+            });
+
+            $('body').fadeIn();
+            var socket = io(server);
+			socket.on('connect', function() {
+		  		loadPage();
+				console.log('check 2', socket.connected);
+			});
+			setTimeout(function(){
+			},2000);
+			function loadPage(){
+				var converter = new showdown.Converter();
+				var a = location.href;
+				var b = location.href.substring(a.indexOf("?") + 1);
+				var str = b;
+				str = str.replace(/-/g, ' ');
+				var simplebar = new Nanobar();
+				simplebar.go(30)
+				if (a == b) {
+					$('.loader').fadeOut('fast');
+					simplebar.go(100)
+				} else {
+					socket.emit('blogString', str);
+				}
+				socket.once('articleData', function(data) {
+					simplebar.go(75);
+					$('html').append('<title>' + str.split('*')[0] + '</title>');
+	
+					$('#pageBack').append(converter.makeHtml(data[0].text));
+					$('#pageBack').append('<ul id="socialList"><li style="display:inline-block"><a class="btn-floating waves-effect blue darken-3"><i class="fa fa-facebook"></i></a>&nbsp;</li><li style="display:inline-block"><a href="mailto:?subject=New Blog Website&body=Hi,I found this website and thought you might like it" class="btn-floating green darken-1"><i class="fa fa-envelope-o"></i></a>&nbsp;</li><li style="display:inline-block"><a class="btn-floating blue"><i class="fa fa-twitter"></i></a>&nbsp;</li><li style="display:inline-block"><a class="btn-floating red"><i class="material-icons">attach_file</i></a>&nbsp;</li></ul>');
+					if ($('body').width() <= 768) {
+						$("h1, h2, h3, h4, h5, h6").css('text-align', 'center');
+						$('p').addClass('flow-text');
+						$('#pageBack').removeClass('container');
+					}
+					$("img").parent().css({
+						"text-align": "center"
+					});
+					$('.loader').fadeOut('fast');
+					$('#mainBodyContainer').fadeIn();
+					simplebar.go(100)
+					$('p img').click(function() {
+						$('#img').attr('src', $(this).attr('src'));
+						$('#altText').html($(this).attr('alt'));
+						$('#modal1').openModal();
+						$('#img').width('100%')
+	
+					})
+				});
+			}
+        </script>
+</body>
+
+</html>
