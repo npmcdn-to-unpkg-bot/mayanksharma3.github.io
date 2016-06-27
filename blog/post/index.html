@@ -200,6 +200,7 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 				var b = location.href.substring(a.indexOf("?") + 1);
 				var str = b;
 				str = str.replace(/-/g, ' ');
+				console.log(str);
 				var simplebar = new Nanobar();
 				simplebar.go(30)
 				if (a == b) {
@@ -209,6 +210,7 @@ and thought you might like it" class="btn-floating green darken-1"><i class="fa 
 					socket.emit('blogString', str);
 				}
 				socket.once('articleData', function(data) {
+					console.log(data);
 					simplebar.go(75);
 					$('body').fadeIn();
 					$('html').append('<title>' + str.split('*')[0] + '</title>');

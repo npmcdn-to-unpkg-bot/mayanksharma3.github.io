@@ -243,7 +243,7 @@
                 var year = date.getFullYear();
                 var time = date.toString("hh:mm tt");
                 var dateStr = time + ' ' + day + ' ' + monthNames[monthIndex] + ' ' + year;
-                $('#card-container').append('<div class="card blue-grey darken-1"><div class="card-content white-text"><span class="card-title">' + data[i].fileName.split('*')[0] + '</span><p>' + data[i].fileName.split('*')[1] + '</p></div><div class="card-action"><a onClick="goPage(' + i + ')" class="btn waves-effect waves-light white-text bg-default">Find Out More</a></div></div>');
+                $('#card-container').append('<div class="card blue-grey darken-1"><div class="card-image"><img style="min-width:100%;height:auto; z-index:0" src="http://www.energyworx.com/wp-content/uploads/IoT-Graphic.png"></div><div style="z-index:1" class="card-content white-text"><span class="card-title">' + data[i].fileName.split('*')[0] + '</span><p>' + data[i].fileName.split('*')[1] + '</p></div><div class="card-action"><a onClick="goPage(' + i + ')" class="btn waves-effect waves-light white-text bg-default">Find Out More</a></div></div>');
                 /*if (data[i].fileName.split('*')[1]) {
                     $('#add').append('<div class="post-preview"><a onClick="goPage(' + i + ')"><h2 class="post-title">' + data[i].fileName.split('*')[0] + '</h2><h3 class="post-subtitle">' + data[i].fileName.split('*')[1] + '</h3></a><p class="post-meta">Posted by <a href="about">' + data[i].owner + '</a> on ' + dateStr + '</p></div><hr>')
                 } else {
