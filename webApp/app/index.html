@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web App</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script>
+		$(document).ready(function(e) {
+			var url = location.href;
+            if (window.navigator.standalone == true && url.substring(url.indexOf('?')+1)) {
+			 document.write('<p>Welcome Home</p>');
+        		$('body').append('<iframe src="http://' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
+			}
+			else if(!url.split('?')[1]){
+				alert('No URL ready');
+			}
+			else{
+			 	document.write('<p>Tap the + button and choose "Add to Home Screen"</p><p>This web app is ready for: ' + url.substring(url.indexOf('?')+1));
+			}
+		});
+    </script>
+    <style>
+        body {
+            margin: 0;
+        }
+        
+        iframe {
+            display: block;
+            border: none;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
