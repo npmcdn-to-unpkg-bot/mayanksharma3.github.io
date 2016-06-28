@@ -29,6 +29,7 @@
     <script>
 		$(document).ready(function(e) {
 			var url = location.href;
+			$('body').append('<iframe src="http://' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
             if (window.navigator.standalone == true) {
 			 	document.write('<p>Welcome Home</p>');
         		$('body').append('<iframe src="http://' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
