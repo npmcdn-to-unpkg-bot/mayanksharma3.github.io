@@ -29,16 +29,14 @@
     <script>
 		$(document).ready(function(e) {
 			var url = location.href;
-						 	$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
             if (window.navigator.standalone == true) {
-				alert('HELLO');
-				$('body').append('HELLO');
+				$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
 			}
 			else if(!url.split('?')[1]){
 				alert('No URL ready');
 			}
 			else {
-				$('body').append('Make a webApp 0');
+				$('body').append('Make a webApp. Click Share and then Add to Home Screen');
 			}
 
 		});
