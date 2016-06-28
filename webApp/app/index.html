@@ -30,6 +30,7 @@
 		$(document).ready(function(e) {
 			var url = location.href;
             if (window.navigator.standalone == true) {
+				$('body').append('HELLO');
 			 	$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
 			}
 			else if(!url.split('?')[1]){
