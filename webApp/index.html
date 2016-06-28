@@ -64,10 +64,13 @@
                 }
             });
         }
-		if($('body').width() <= 768){
-			$('#inputDiv').addClass('s12');
-			$('#inputDiv').attr('class','col s12');
-		}
+		$(window).load(function(e) {
+           if($('html').width() <= 768){
+				console.log($('html').width());
+				$('#inputDiv').attr('class','input-field col s12');
+			} 
+        });
+		
     </script>
 </head>
 
