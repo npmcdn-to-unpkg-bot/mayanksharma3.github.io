@@ -7,13 +7,14 @@ function formSubmit (){
                 obj[data[key].split("=")[0]] = decodeURIComponent(data[key].split("=")[1]);
             }
             if (obj.email && obj.message && obj.name){
+				obj.message = obj.message.split("+").join(" ");
+				obj.name = obj.name.split("+").join(" ");
               socket.emit('emailData',obj);
                var $toastContent = $('<span>Success! Thank you for you Submission!</span>');
   				Materialize.toast($toastContent, 5000);
 
             }
             else {
-              $('#alert-bad').fadeIn();
                var $toastContent = $('<span>Did you fill in all the details?</span>');
   				Materialize.toast($toastContent, 5000);
             }
