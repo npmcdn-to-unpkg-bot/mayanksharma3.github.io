@@ -32,14 +32,11 @@
 			$('body').append('<iframe src="http://' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
             if (window.navigator.standalone == true) {
 			 	document.write('<p>Welcome Home</p>');
-        		$('body').append('<iframe src="http://' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
 			}
 			else if(!url.split('?')[1]){
 				alert('No URL ready');
 			}
-			else{
-			 	document.write('<p>Tap the + button and choose "Add to Home Screen"</p><p>This web app is ready for: ' + url.substring(url.indexOf('?')+1));
-			}
+
 		});
     </script>
     <style>
