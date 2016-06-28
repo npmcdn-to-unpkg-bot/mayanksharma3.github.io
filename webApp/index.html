@@ -10,57 +10,64 @@
     <link href="min/custom-min.css" type="text/css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-	<style>
-		/* label color */
-		
-		.input-field label {
-			color: #FFF;
+    <style>
+        /* label color */
+        
+        .input-field label {
+            color: #FFF;
+        }
+        /* label focus color */
+        
+        .input-field input[type=url]:focus+ label {
+            color: #FFF;
+        }
+        /* label underline focus color */
+        
+        .input-field input[type=url]:focus {
+            border-bottom: 1px solid #FFF;
+            box-shadow: 0 1px 0 0 #FFF;
+        }
+        
+        .input-field input[type=url] {
+            border-bottom: 1px solid #FFF;
+            box-shadow: 0 1px 0 0 #FFF;
+        }
+        /* icon prefix focus color */
+        
+        .input-field .prefix.active {
+            color: #FFF;
+        }
+    </style>
+    <script>
+        function formSubmit() {
+            bit_url('http://mayanksharma3.github.io/webApp/app/?' + $('.urlInput').val());
+
+            return false;
+        }
+
+        function bit_url(url) {
+            var url = url;
+            var username = "mayanksharma318"; // bit.ly username
+            var key = "R_43bed1124b1d45c5b21cf92e65498a6c";
+            $.ajax({
+                url: "http://api.bit.ly/v3/shorten",
+                data: {
+                    longUrl: url,
+                    apiKey: key,
+                    login: username
+                },
+                dataType: "jsonp",
+                success: function(v) {
+                    var bit_url = v.data.url;
+                    $('#result').html('<a class="white-text" href=' + bit_url + '>' + bit_url + '</a>');
+                    $('#result').fadeIn();
+                }
+            });
+        }
+		if($('body').width() <= 768){
+			$('#inputDiv').attr('class','col s12');
 		}
-		/* label focus color */
-		
-		.input-field input[type=url]:focus+ label {
-			color: #FFF;
-		}
-		/* label underline focus color */
-		
-		.input-field input[type=url]:focus {
-			border-bottom: 1px solid #FFF;
-			box-shadow: 0 1px 0 0 #FFF;
-		}
-		
-		.input-field input[type=url] {
-			border-bottom: 1px solid #FFF;
-			box-shadow: 0 1px 0 0 #FFF;
-		}
-		/* icon prefix focus color */
-		
-		.input-field .prefix.active {
-			color: #FFF;
-		}
-	</style>
-	<script>
-	function formSubmit(){
-		bit_url('http://mayanksharma3.github.io/webApp/app/?' + $('.urlInput').val());
-		
-		return false;
-	}
-	function bit_url(url) { 
-	var url=url;
-	var username="mayanksharma318"; // bit.ly username
-	var key="R_43bed1124b1d45c5b21cf92e65498a6c";
-	$.ajax({
-		url:"http://api.bit.ly/v3/shorten",
-		data:{longUrl:url,apiKey:key,login:username},
-		dataType:"jsonp",
-		success:function(v)
-	{
-	var bit_url=v.data.url;
-	$('#result').html('<a class="white-text" href=' + bit_url + '>' + bit_url + '</a>');
-	$('#result').fadeIn();
-	}
-	});
-}
-	</script>
+    </script>
 </head>
 
 <body>
@@ -70,15 +77,15 @@
                 <div class="text_h">Web App Generator
                     <p style="font-size:20px">Enter a URL below to make it a web app!</p>
                     <div class="row white-text">
-                        <div class="input-field col s6 offset-s3">
-                            <form id="urlForm" onsubmit="return formSubmit()" >
-                                <input class="urlInput validate" id="icon_prefix" type="url" name="url" required="required"/>
+                        <div id="inputDiv" class="input-field col s6 offset-s3">
+                            <form id="urlForm" onsubmit="return formSubmit()">
+                                <input class="urlInput validate" id="icon_prefix" type="url" name="url" required="required" />
                                 <label for="icon_prefix">URL</label>
                                 <button type="submit" style="font-size:20px" class="waves-effect waves-light btn">Submit</button>
                             </form>
                             <p id="result" style="font-size:20px; display:none">DONE</p>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
