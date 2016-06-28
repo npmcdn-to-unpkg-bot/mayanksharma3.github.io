@@ -29,12 +29,14 @@
     <script>
 		$(document).ready(function(e) {
 			var url = location.href;
-			$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
             if (window.navigator.standalone == true) {
-			 	document.write('<p>Welcome Home</p>');
+			 	$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
 			}
 			else if(!url.split('?')[1]){
 				alert('No URL ready');
+			}
+			else {
+				document.write('Make a webApp');
 			}
 
 		});
