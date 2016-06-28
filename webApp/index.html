@@ -53,7 +53,7 @@
 		success:function(v)
 	{
 	var bit_url=v.data.url;
-	$('#result').html(bit_url);
+	$('#result').html('<a href=' + bit_url + '>' + bit_url + '</a>');
 	$('#result').fadeIn();
 	}
 	});
