@@ -4,8 +4,8 @@
     <title>Web App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
-<!--    <meta name="apple-mobile-web-app-capable" content="yes">
--->    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="img/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
@@ -29,10 +29,10 @@
     <script>
 		$(document).ready(function(e) {
 			var url = location.href;
+						 	$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
             if (window.navigator.standalone == true) {
 				alert('HELLO');
 				$('body').append('HELLO');
-			 	$('body').append('<iframe src="' + url.substring(url.indexOf('?')+1) + '"> </iframe>');
 			}
 			else if(!url.split('?')[1]){
 				alert('No URL ready');
