@@ -1,2 +1,2 @@
 # mayanksharma3.github.io
-My Personal Site
+My Personal Site as a portfolio
