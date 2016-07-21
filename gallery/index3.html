@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Mayank Sharma</title>
+    <link rel="shortcut icon" href="img/icon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../min/plugin-min.css" type="text/css" rel="stylesheet">
+    <link href="../min/custom-min.css" type="text/css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src='https://cdn.socket.io/socket.io-1.4.5.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://npmcdn.com/masonry-layout@4.1/dist/masonry.pkgd.min.js"></script>
+    <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+
+        /* force scrollbar */
+        html { overflow-y: scroll; }
+
+
+        /* ---- grid ---- */
+
+        .grid {
+            background: #FFFFFF;
+            width:100%;
+        }
+
+        /* clear fix */
+        .grid:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* ---- .grid-item ---- */
+
+        .grid-sizer,
+        .grid-item {
+            width: 33.333%;
+            padding:10px;
+        }
+
+        .grid-item {
+            float: left;
+        }
+
+        .grid-item img {
+            display: block;
+            width: 100%;
+        }
+
+    </style>
+    <style>
+
+
+        .bar {
+            width: 0;
+            height: 100%;
+            transition: height .3s;
+            background: #000;
+        }
+
+        .post-title {
+            cursor: pointer;
+        }
+
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: url('../img/page-loader.gif') 50% 50% no-repeat rgb(249, 249, 249);
+        }
+
+        .bg-default {
+            background-color: #26a59a !important;
+        }
+        @media(max-width:768px){
+            #des{
+                font-size:30px;
+                line-height:35px;
+            }
+        }
+        @media(min-width:768px){
+            .projectDes{
+                font-size:20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body id="container">
+<div id="loader-wrapper">
+    <div id="loader"></div>
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+</div>
+<div class="navbar-fixed">
+    <nav id="nav_f" role="navigation" class="bg-default">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../../" id="logo-container" class="brand-logo" style="letter-spacing:1px; font-weight:400">Mayank Sharma</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#intro">About</a></li>
+                    <li><a href="#work">My Work</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul id="nav-mobile" class="side-nav">
+                    <li><a href="#intro">About</a></li>
+                    <li><a href="#work">My Work</a></li>
+                    <li><a href="blog">Blog</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i style="margin-left:10px" class="mdi-navigation-menu"></i></a>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="section no-pad-bot bg-default" id="index-banner">
+    <div class="container" id="hero">
+        <h1 class="text_h center header cd-headline letters type" id="head">
+            <div class="type-wrap">
+                <span>My Photo Gallery</span>
+            </div>
+        </h1>
+    </div>
+</div>
+<div id="intro" class="section scrollspy">
+    <div class="container">
+        <div class="row">
+
+
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="grid">
+            <div class="grid-sizer"></div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
+            </div>
+            <div class="grid-item">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
+            </div>
+        </div>
+        <script>
+            // external js: masonry.pkgd.js, imagesloaded.pkgd.js
+
+            // init Masonry after all images have loaded
+            var $grid = $('.grid').imagesLoaded( function() {
+                $grid.masonry({
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                    columnWidth: '.grid-sizer'
+                });
+            });
+
+        </script>
+    </div>
+</div>
+</div>
+<footer id="contact" class="page-footer bg-default scrollspy">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix white-text"></i>
+                            <input id="icon_prefix" name="name" type="text" class="validate white-text">
+                            <label for="icon_prefix" class="white-text">Full Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-communication-email prefix white-text"></i>
+                            <input id="icon_email" name="email" type="email" class="validate white-text">
+                            <label for="icon_email" class="white-text">Email-ID</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <i class="mdi-editor-mode-edit prefix white-text"></i>
+                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                            <label for="icon_prefix2" class="white-text">Message</label>
+                        </div>
+                        <div class="col offset-s7 s5">
+                            <button class="btn waves-effect waves-light red darken-1" type="button" onClick="formSubmit()">Submit
+                                <i class="mdi-content-send right white-text"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col m3">
+                <h5 class="white-text">Mayank Sharma</h5>
+                <ul>
+                    <li><a class="white-text" href="../">Home</a></li>
+                    <li><a class="white-text" href="../#intro">About</a></li>
+                    <li><a class="white-text" href="../#about">My Work</a></li>
+                    <li><a class="white-text" href="#">Blog</a></li>
+                    <li><a class="white-text" href="../#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col m3">
+                <h5 class="white-text">Social</h5>
+                <ul>
+                    <li>
+                        <a class="white-text" href="https://twitter.com/mayanksharma318">
+                            <i class="small fa fa-twitter-square white-text" style="vertical-align:middle"></i> Twitter
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.facebook.com/">
+                            <i class="small fa fa-facebook-square white-text" style="vertical-align:middle"></i> Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://github.com/mayanksharma3">
+                            <i class="small fa fa-github-square white-text" style="vertical-align:middle"></i> Github
+                        </a>
+                    </li>
+                    <li>
+                        <a class="white-text" href="https://www.linkedin.com/">
+                            <i class="small fa fa-linkedin-square white-text" style="vertical-align:middle"></i> Linkedin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright bg-default">
+        <div class="container">
+            Made by Mayank Sharma
+        </div>
+    </div>
+</footer>
+<script src="../blog/js/serverVar.js"></script>
+<script src="../js/formSubmit.js"></script>
+<script src="../min/plugin-min.js"></script>
+<script src="../min/custom-min.js"></script>
+<script src="../js/typed.js" type="text/javascript"></script>
+<script src="../js/jquery-bigtext.js"></script>
+</body>
+
+</html>
