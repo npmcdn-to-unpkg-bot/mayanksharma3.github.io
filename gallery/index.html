@@ -53,7 +53,6 @@
         }
 
         .grid-item img {
-            display: block;
             width: 100%;
         }
 
@@ -96,6 +95,8 @@
                 font-size:20px;
             }
         }
+
+
     </style>
 
 </head>
@@ -150,46 +151,37 @@
         <div class="grid">
             <div class="grid-sizer"></div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/orange-tree.jpg" />
+                <img src="img/1.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/submerged.jpg" />
+                <img src="img/2.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/look-out.jpg" />
+                <img src="img/3.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/one-world-trade.jpg" />
+                <img src="img/4.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/drizzle.jpg" />
+                <img src="img/5.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/cat-nose.jpg" />
+                <img src="img/6.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/contrail.jpg" />
+                <img src="img/7.PNG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/golden-hour.jpg" />
+                <img src="img/8.JPG" />
             </div>
             <div class="grid-item">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/82/flight-formation.jpg" />
+                <img src="img/9.JPG" />
+            </div>
+            <div class="grid-item">
+                <img src="img/10.JPG" />
             </div>
         </div>
-        <script>
-            // external js: masonry.pkgd.js, imagesloaded.pkgd.js
 
-            // init Masonry after all images have loaded
-            var $grid = $('.grid').imagesLoaded( function() {
-                $grid.masonry({
-                    itemSelector: '.grid-item',
-                    percentPosition: true,
-                    columnWidth: '.grid-sizer'
-                });
-            });
-
-        </script>
     </div>
 </div>
 </div>
